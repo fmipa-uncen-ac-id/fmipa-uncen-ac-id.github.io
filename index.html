@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FMIPA Uncen – Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Cenderawasih. Sains untuk Kehidupan. Inovasi untuk Negeri.">
+    <meta name="keywords" content="FMIPA Uncen, Universitas Cenderawasih, Fakultas MIPA, Matematika, Fisika, Kimia, Biologi, Farmasi, Jayapura, Papua">
+    <title>FMIPA Uncen – Unity in Diversity</title>
+    <meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
+    <link rel="icon" href="https://fmipa.uncen.ac.id/wp-content/uploads/2025/10/cropped-logo-uncen-rev-3-32x32.png" sizes="32x32" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap');
+        
+        :root {
+            --primary: #003087;
+        }
+        
+        * {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .header {
+            background: rgb(200 210 215);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://fmipa.uncen.ac.id/wp-content/uploads/2025/10/hero-background.jpg') center/cover no-repeat;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #003087;
+            transform: translateY(-1px);
+        }
+        
+        .section-title {
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #003087;
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- HEADER - SAMA PERSIS STRUKTUR DENGAN https://fmipa.uncen.ac.id/ -->
+    <header class="header sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto">
+            <!-- Top Bar -->
+            <div class="bg-[#003087] text-white py-2 text-sm">
+                <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="flex items-center gap-1 hover:underline">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Kamp Walker, Perumnas III Waena, Jayapura, Papua</span>
+                        </a>
+                        <a href="mailto:fmipa@uncen.ac.id" class="flex items-center gap-1 hover:underline">
+                            <i class="fas fa-envelope"></i>
+                            <span>fmipa@uncen.ac.id</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 text-xs">
+                        <a href="#" class="hover:underline">AKADEMIK</a>
+                        <a href="#" class="hover:underline">PENELITIAN</a>
+                        <a href="#" class="hover:underline">KAMPUS</a>
+                        <div class="flex items-center gap-2 border-l border-white/30 pl-6">
+                            <button onclick="toggleLanguage()" class="flex items-center gap-1 text-white hover:text-yellow-300">
+                                <i class="fas fa-globe"></i>
+                                <span id="lang-text">EN / ID</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Navbar -->
+            <nav class="px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- LOGO - MENGGUNAKAN GAMBAR YANG ANDA MINTA -->
+                    <a href="https://fmipa.uncen.ac.id/" class="flex items-center">
+                        <img src="https://fmipa.uncen.ac.id/wp-content/uploads/2025/10/logo-horizontal-2.png" 
+                             alt="FMIPA Uncen Logo" 
+                             class="h-14 w-auto">
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center gap-x-8 text-base font-medium">
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Fakultas</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Academics &amp; Programs</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Upcoming Events</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Scholarship Programs</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Research</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Campus Life</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-[#003087]">Admission</a>
+                    </div>
+
+                </div>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-6 text-base font-medium">
+                <a href="#" class="block py-3 border-b">Fakultas</a>
+                <a href="#" class="block py-3 border-b">Academics &amp; Programs</a>
+                <a href="#" class="block py-3 border-b">Upcoming Events</a>
+                <a href="#" class="block py-3 border-b">Scholarship Programs</a>
+                <a href="#" class="block py-3 border-b">Research</a>
+                <a href="#" class="block py-3 border-b">Campus Life</a>
+                <a href="#" class="block py-3 border-b">Admission</a>
+                <div class="pt-6">
+                    <input type="text" placeholder="Cari di FMIPA Uncen..." 
+                           class="w-full bg-gray-100 border border-gray-300 rounded-2xl px-5 py-4 text-sm">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - SAMA PERSIS -->
+    <section class="hero-bg text-white pt-16 pb-24">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    FMIPA Uncen<br>
+                    <span class="text-yellow-300">Unity in Diversity</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-white/90">
+                    Sains untuk Kehidupan. Inovasi untuk Negeri
+                </p>
+                <p class="text-lg max-w-lg mb-10">
+                    Mendidik generasi penerus sains melalui pendidikan dan penelitian inovatif yang berakar pada kekayaan Nusantara. 
+                    Bergabunglah untuk mengasah kemampuan, menjalin jejaring, dan mempersiapkan karir cemerlang di bidang MIPA.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" 
+                       class="bg-white text-[#003087] hover:bg-yellow-300 hover:text-[#003087] px-8 py-4 rounded-2xl font-semibold inline-flex items-center gap-3 text-lg transition-all">
+                        <i class="fas fa-graduation-cap"></i>
+                        Lihat Program Studi
+                    </a>
+                    <a href="#" 
+                       class="border-2 border-white hover:bg-white hover:text-[#003087] px-8 py-4 rounded-2xl font-semibold inline-flex items-center gap-3 text-lg transition-all">
+                        Gabung Bersama Kami
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-8 text-sm">
+                    <div class="flex items-center">
+                        <div class="bg-white/20 text-white rounded-2xl px-4 py-2 flex items-center gap-2">
+                            <i class="fas fa-users"></i>
+                            <span>1.200+ Mahasiswa</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-white/20 text-white rounded-2xl px-4 py-2 flex items-center gap-2">
+                            <i class="fas fa-flask"></i>
+                            <span>11 Program Studi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Visual -->
+            <div class="hidden md:block">
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center">
+                    <img src="https://fmipa.uncen.ac.id/wp-content/uploads/2025/10/campus-hero.jpg" 
+                         alt="Kampus FMIPA Uncen" 
+                         class="rounded-2xl shadow-2xl mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANNOUNCEMENT / PENGUMUMAN -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 section-title">Pengumuman Terbaru</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Announcement 1 -->
+                <div class="border border-gray-200 rounded-3xl p-6 card-hover">
+                    <div class="text-xs uppercase tracking-widest text-[#003087] font-semibold mb-3">PKM Award 2025</div>
+                    <p class="font-medium leading-tight">Selamat kepada Hardi Hamzah, Dosen Prodi FISIKA yang memperoleh Penghargaan dalam PKM Award 2025 oleh Kemendiktisainstek dengan membimbing 6 Tim Mahasiswa</p>
+                    <a href="#" class="text-[#003087] text-sm mt-6 inline-flex items-center gap-2 hover:underline">
+                        Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Announcement 2 -->
+                <div class="border border-gray-200 rounded-3xl p-6 card-hover">
+                    <div class="text-xs uppercase tracking-widest text-[#003087] font-semibold mb-3">PIMNAS 2025</div>
+                    <p class="font-medium leading-tight">Selamat untuk 2 Team dari Farmasi yang mengikuti PIMNAS 2025 di Universitas Tidar. Sukses Selalu.</p>
+                    <a href="#" class="text-[#003087] text-sm mt-6 inline-flex items-center gap-2 hover:underline">
+                        Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Announcement 3 -->
+                <div class="border border-gray-200 rounded-3xl p-6 card-hover bg-[#003087] text-white">
+                    <div class="text-xs uppercase tracking-widest font-semibold mb-3">Event Internasional</div>
+                    <p class="font-medium leading-tight">SGS co-founder Frank von Hippel returns to campus Tuesday for a 50th anniversary event and book discussion about his new memoir, “Ending the Nuclear Arms Race: A Physicist’s Quest.”</p>
+                    <a href="#" class="text-white text-sm mt-6 inline-flex items-center gap-2 hover:underline">
+                        Read Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BERITA / CAMPUS NEWS -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold section-title">Berita Kampus</h2>
+                <a href="#" class="text-[#003087] font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                    Lihat Semua Berita <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl overflow-hidden card-hover">
+                    <img src="https://fmipa.uncen.ac.id/wp-content/uploads/2025/08/pkkmb-2025.jpg" 
+                         alt="PKKMB 2025 FMIPA Uncen" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg leading-tight mb-3">
+                            PKKMB 2025 FMIPA Uncen: Menanamkan Integritas, Membangun Generasi Berkualitas
+                        </h3>
+                        <p class="text-sm text-gray-500">15 Agustus 2025</p>
+                        <a href="https://fmipa.uncen.ac.id/2025/08/15/pkkmb-2025-fmipa-uncen-menanamkan-integritas-membangun-generasi-berkualitas/" 
+                           class="mt-6 text-[#003087] text-sm inline-flex items-center">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM STUDI -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Program Studi</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">11 Program Studi Unggulan di Bidang Matematika dan Ilmu Pengetahuan Alam</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Matematika</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Kimia</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Geofisika</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Statistika</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Biologi</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Farmasi</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Sistem Informasi</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Teknologi Pangan</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Fisika</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Ilmu Kelautan</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all">Ilmu Perikanan</div>
+                <div class="text-center p-6 border border-gray-100 hover:border-[#003087] rounded-3xl transition-all bg-[#003087] text-white">Magister Biologi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPCOMING EVENTS & SCHOLARSHIP -->
+    <section class="py-16 bg-[#003087] text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+            <!-- Events -->
+            <div>
+                <h2 class="text-3xl font-bold mb-8">Upcoming Events</h2>
+                <div class="space-y-6">
+                    <div class="flex gap-6">
+                        <div class="text-center w-20 shrink-0">
+                            <div class="text-4xl font-bold">15</div>
+                            <div class="text-xs uppercase">APR</div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Upacara Dies Natalis Uncen</h4>
+                            <p class="text-sm opacity-80">Perayaan hari jadi universitas dengan berbagai kegiatan ilmiah</p>
+                        </div>
+                    </div>
+                    <!-- Tambahkan event lain sesuai situs asli -->
+                </div>
+            </div>
+            
+            <!-- Scholarship -->
+            <div>
+                <h2 class="text-3xl font-bold mb-8">Scholarship Programs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4"><i class="fas fa-check-circle"></i> Beasiswa KIP Kuliah</li>
+                    <li class="flex items-center gap-4"><i class="fas fa-check-circle"></i> Beasiswa Bank Indonesia</li>
+                    <li class="flex items-center gap-4"><i class="fas fa-check-circle"></i> Beasiswa Bakti BCA</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS LIFE / A WORLD OF IDEAS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">A World of Ideas, One Campus</h2>
+            <p class="text-2xl max-w-2xl mx-auto mb-12">Big Dreams Start on FMIPA Uncen</p>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                Discover a vibrant, inclusive, and inspiring place to learn, grow, and connect. At FMIPA, Cenderawasih University campus life goes beyond the classroom—it’s where futures are built, friendships are formed, and dreams take flight. Join us and be part of something extraordinary.
+            </p>
+            <a href="#" class="mt-10 inline-flex items-center bg-[#003087] text-white px-10 py-5 rounded-3xl text-lg font-semibold">Explore Campus Life →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER - SAMA PERSIS -->
+    <footer class="bg-[#003087] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-8">
+            <div>
+                <img src="https://fmipa.uncen.ac.id/wp-content/uploads/2025/10/logo-horizontal-2.png" 
+                     alt="FMIPA Uncen" class="h-12 mb-6 brightness-0 invert">
+                <p class="text-sm opacity-80">Fakultas Matematika dan Ilmu Pengetahuan Alam<br>Universitas Cenderawasih</p>
+                <div class="mt-8 flex gap-4">
+                    <i class="fab fa-facebook-f text-2xl cursor-pointer hover:text-yellow-300"></i>
+                    <i class="fab fa-instagram text-2xl cursor-pointer hover:text-yellow-300"></i>
+                    <i class="fab fa-youtube text-2xl cursor-pointer hover:text-yellow-300"></i>
+                </div>
+            </div>
+            
+            <div>
+                <h5 class="uppercase text-xs tracking-widest mb-6">Academic departments</h5>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:underline">Undergraduate programs</a></li>
+                    <li><a href="#" class="hover:underline">Graduate programs</a></li>
+                    <li><a href="#" class="hover:underline">Institutes and Centers</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="uppercase text-xs tracking-widest mb-6">Admission</h5>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:underline">Undergraduate admission</a></li>
+                    <li><a href="#" class="hover:underline">Graduate admission</a></li>
+                    <li><a href="#" class="hover:underline">International affairs office</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="uppercase text-xs tracking-widest mb-6">Research</h5>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:underline">Research overview</a></li>
+                    <li><a href="#" class="hover:underline">eLink research</a></li>
+                    <li><a href="#" class="hover:underline">Laboratorium center</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="uppercase text-xs tracking-widest mb-6">Hubungi Kami</h5>
+                <p class="text-sm opacity-80">Jl. Jalan Kamp Walker, Perumnas III Waena, Jayapura, Papua</p>
+                <p class="mt-4 text-sm opacity-80">fmipa@uncen.ac.id</p>
+                <div class="mt-8">
+                    <span class="text-xs">College &amp; University WordPress Theme. Powered by Gutenverse Blocks Addons</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center text-xs opacity-60 mt-16 border-t border-white/10 pt-8">
+            © 2026 FMIPA Universitas Cenderawasih. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already loaded
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        function toggleLanguage() {
+            const lang = document.getElementById('lang-text');
+            if (lang.textContent === 'EN / ID') {
+                lang.textContent = 'ID / EN';
+                alert('Bahasa diubah ke Indonesia (demo)');
+            } else {
+                lang.textContent = 'EN / ID';
+            }
+        }
+        
+        // Auto tailwind script
+        document.documentElement.setAttribute('data-tailwind-config', JSON.stringify({
+            theme: { extend: {} }
+        }));
+    </script>
+</body>
+</html>
